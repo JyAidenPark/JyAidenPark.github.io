@@ -1,65 +1,49 @@
 ---
 layout: page
-title: projects
+title: Chip Gallery
 permalink: /projects/
-description: A growing collection of your cool projects.
 nav: true
 nav_order: 3
-display_categories: [work, fun]
-horizontal: false
+gallery:
+  - image: /assets/img/12.jpg
+    title: Sample image
+    alt: Placeholder photograph for the chip gallery
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
+<style>
+  .chip-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: 24px;
+    margin: 24px 0 48px;
+  }
+  .chip-gallery-item {
+    margin: 0;
+    min-width: 0;
+  }
+  .chip-gallery-item img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--global-card-bg-color, #fff);
+    border: 1px solid var(--global-divider-color, #e5e7eb);
+    border-radius: 5px;
+  }
+  .chip-gallery-item figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--global-text-color-light, #64748b);
+  }
+</style>
+
+<div class="chip-gallery">
+  {% for chip in page.gallery %}
+    <figure class="chip-gallery-item">
+      <img src="{{ chip.image | relative_url }}" alt="{{ chip.alt | default: chip.title | escape }}" loading="lazy">
+      {% if chip.title %}<figcaption>{{ chip.title | escape }}</figcaption>{% endif %}
+    </figure>
   {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
-
-{% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-{% endif %}
 </div>

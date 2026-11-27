@@ -64,6 +64,12 @@ layout: default
     text-decoration: none;
   }
 
+  .hero-links .hero-link-pending {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--global-text-color-light, #64748b);
+  }
+
   .hero-links a:hover {
     text-decoration: underline;
   }
@@ -107,9 +113,13 @@ layout: default
 
     <div class="hero-links">
       {% for link in page.profile_links %}
-        <a href="{{ link.url | escape }}">
-          {{ link.title }} ↗
-        </a>
+        {% if link.url and link.url != '' %}
+          <a href="{{ link.url | escape }}">
+            {{ link.title | escape }} ↗
+          </a>
+        {% else %}
+          <span class="hero-link-pending" aria-disabled="true">{{ link.title | escape }} ↗</span>
+        {% endif %}
       {% endfor %}
     </div>
 

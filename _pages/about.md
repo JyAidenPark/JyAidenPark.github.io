@@ -11,16 +11,10 @@ profile:
   image: fix/JY_profile.jpg
 
 profile_links:
-  - title: CV
-    url: /cv/
-  # - title: Email
-  #   url: "mailto:YOUR_EMAIL"
-  # - title: Google Scholar
-  #   url: "YOUR_SCHOLAR_URL"
-  # - title: GitHub
-  #   url: "https://github.com/JyAidenPark"
-  # - title: LinkedIn
-  #   url: "YOUR_LINKEDIN_URL"
+  - title: Email
+    url: "" # Set to "mailto:your-public-email@example.com"
+  - title: LinkedIn
+    url: "" # Set to your public LinkedIn profile URL
 
 selected_papers: false
 
