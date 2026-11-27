@@ -30,6 +30,4 @@ announcements:
   limit: 5
 ---
 
-My research focuses on low-power memory circuits and architectures, particularly SRAM, TCAM, and energy-efficient SRAM-based in-memory computing.
-
-I am interested in developing energy-efficient memory architectures for next-generation computing systems.
+My research focuses on low-power memory circuits and architectures, particularly SRAM, TCAM, and energy-efficient SRAM-based in-memory computing. I'm interested in developing energy-efficient memory architectures for next-generation computing systems.
