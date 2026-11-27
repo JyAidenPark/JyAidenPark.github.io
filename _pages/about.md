@@ -1,26 +1,35 @@
 ---
-layout: about
-title: home
+layout: personal_home
+title: Home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. PH.D. candidate in Electrical Engineering · UNIST · Advisor: Kyung Rok Kim
+
+research_keywords: "Memory Circuits · In-Memory Computing · AI Hardware"
+
+subtitle: "Ph.D. Candidate in Electrical Engineering · UNIST · Advisor: Kyung Rok Kim"
 
 profile:
-  align: right
-  image: /fix/JY_profile.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
+  image: fix/JY_profile.jpg
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: false
+profile_links:
+  - title: CV
+    url: /cv/
+  # - title: Email
+  #   url: "mailto:YOUR_EMAIL"
+  # - title: Google Scholar
+  #   url: "YOUR_SCHOLAR_URL"
+  # - title: GitHub
+  #   url: "https://github.com/JyAidenPark"
+  # - title: LinkedIn
+  #   url: "YOUR_LINKEDIN_URL"
+
+selected_papers: false
+
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  enabled: false
+  scrollable: false
+  limit: 5
 ---
 
-His current research interests include low power memory (SRAM/TCAM) architecture and energy-efficient SRAM-based in-memory computing designs.
+My research focuses on low-power memory circuits and architectures, particularly SRAM, TCAM, and energy-efficient SRAM-based in-memory computing.
+
+I am interested in developing energy-efficient memory architectures for next-generation computing systems.
