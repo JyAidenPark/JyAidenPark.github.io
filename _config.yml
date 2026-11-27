@@ -11,9 +11,9 @@ contact_note: >
 description: > 
    Personal academic website of Junyoung Park, a Ph.D. student in Electrical Engineering at UNIST.
 footer_text: >
-<br>
+  <br>
 <i>Hymnus Humanitatis</i>
-<br>
+  <br>
 <i>Made on Earth by humans</i>
 keywords: TCAM, CAM, SRAM, CIM, Memory Circuits, AI Accelerator
 lang: en
