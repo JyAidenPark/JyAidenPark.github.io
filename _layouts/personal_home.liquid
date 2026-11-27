@@ -1,1 +1,138 @@
 
+---
+layout: default
+---
+
+<style>
+  .personal-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 64px;
+    align-items: start;
+    padding: 40px 0 48px;
+  }
+
+  .hero-keywords {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #527086;
+    margin-bottom: 12px;
+  }
+
+  .hero-name {
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: #315d78;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .hero-bio {
+    font-size: 18px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    display: block;
+    margin-top: 12px;
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .hero-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #245e80;
+    text-decoration: none;
+  }
+
+  .hero-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 767px) {
+    .personal-hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 20px 0;
+    }
+
+    .hero-photo {
+      max-width: 200px;
+    }
+
+    .hero-bio {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<section class="personal-hero">
+
+  <div class="hero-text">
+
+    <div class="hero-keywords">
+      {{ page.research_keywords }}
+    </div>
+
+    <h1 class="hero-name">
+      {{ site.title }}
+    </h1>
+
+    <div class="hero-subtitle">
+      {{ page.subtitle }}
+    </div>
+
+    <div class="hero-bio">
+      {{ content }}
+    </div>
+
+    <div class="hero-links">
+      {% for link in page.profile_links %}
+        <a href="{{ link.url | escape }}">
+          {{ link.title }} ↗
+        </a>
+      {% endfor %}
+    </div>
+
+  </div>
+
+  <div class="hero-profile">
+    <img
+      class="hero-photo"
+      src="{{ page.profile.image | prepend: '/assets/img/' | relative_url }}"
+      alt="Profile photo"
+    >
+  </div>
+
+</section>
+
+{% if page.announcements.enabled %}
+  <h2>News</h2>
+  {% include news.liquid limit=true %}
+{% endif %}
+
+{% if page.selected_papers %}
+  <h2>Selected Publications</h2>
+  {% include selected_papers.liquid %}
+{% endif %}
+
