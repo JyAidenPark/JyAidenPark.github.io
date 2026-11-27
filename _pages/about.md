@@ -16,7 +16,7 @@ profile_links:
   - title: LinkedIn
     url: "" # Set to your public LinkedIn profile URL
 
-selected_papers: false
+selected_papers: true
 
 announcements:
   enabled: false

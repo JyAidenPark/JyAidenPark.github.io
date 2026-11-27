@@ -1,0 +1,31 @@
+{% assign item = include.entry %}
+{% if item.start_date or item.end_date or item.date %}
+  <div class="home-cv-date">
+    {% if item.date %}
+      {{ item.date | escape }}
+    {% else %}
+      {% assign start_text = item.start_date | append: '' %}
+      {% assign end_text = item.end_date | append: '' %}
+      {% assign start_length = start_text | size %}
+      {% assign end_length = end_text | size %}
+      {% if start_length == 7 %}
+        {{ start_text | append: '-01' | date: '%b %Y' }}
+      {% elsif start_length == 10 %}
+        {{ start_text | date: '%b %Y' }}
+      {% else %}
+        {{ start_text | escape }}
+      {% endif %}
+      {% if start_text != '' and end_text != '' %} – {% endif %}
+      {% if end_text == 'present' or end_text == 'Present' %}
+        Present
+      {% elsif end_length == 7 %}
+        {{ end_text | append: '-01' | date: '%b %Y' }}
+      {% elsif end_length == 10 %}
+        {{ end_text | date: '%b %Y' }}
+      {% else %}
+        {{ end_text | escape }}
+      {% endif %}
+    {% endif %}
+    {% if item.expected_graduation %} (expected){% endif %}
+  </div>
+{% endif %}

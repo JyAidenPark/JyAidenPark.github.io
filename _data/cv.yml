@@ -8,8 +8,9 @@ cv:
     Volunteer: []
     Awards: []
     Publications: []
+    # Add patents as bullet entries, optionally with Markdown links.
+    Patents: []
     Skills: []
     Languages: []
     Certificates: []
     Projects: []
-    References: []

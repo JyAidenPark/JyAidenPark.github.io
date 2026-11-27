@@ -89,6 +89,78 @@ layout: default
       font-size: 16px;
     }
   }
+
+  .home-selected {
+    padding: 24px 0 36px;
+    border-top: 1px solid var(--global-divider-color, #e5e7eb);
+  }
+
+  .home-section-title {
+    font-size: clamp(25px, 3.2vw, 32px);
+    font-weight: 400;
+    letter-spacing: -0.6px;
+    line-height: 1.25;
+    margin: 0 0 24px;
+  }
+
+  .home-cv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 64px;
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--global-divider-color, #e5e7eb);
+  }
+
+  .home-cv-column {
+    min-width: 0;
+  }
+
+  .home-cv-entry {
+    margin: 0 0 26px;
+  }
+
+  .home-cv-entry:last-child {
+    margin-bottom: 0;
+  }
+
+  .home-cv-date {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #527086;
+    margin-bottom: 5px;
+  }
+
+  .home-cv-entry-title {
+    font-size: 17px;
+    line-height: 1.4;
+    font-weight: 500;
+    margin: 0 0 4px;
+  }
+
+  .home-cv-meta,
+  .home-cv-detail,
+  .home-cv-empty {
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 0 0 6px;
+  }
+
+  .home-cv-detail,
+  .home-cv-empty {
+    color: var(--global-text-color-light, #64748b);
+  }
+
+  .home-cv-detail p {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+    .home-cv-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      padding: 24px 0 36px;
+    }
+  }
 </style>
 
 <section class="personal-hero">
@@ -141,7 +213,52 @@ layout: default
 {% endif %}
 
 {% if page.selected_papers %}
-  <h2>Selected Publications</h2>
-  {% include selected_papers.liquid %}
+  <section class="home-selected" aria-labelledby="selected-publications">
+    <h2 class="home-section-title" id="selected-publications">Selected Publications</h2>
+    <div class="publications">
+      {% bibliography --group_by none --max 4 --query @*[selected=true]* %}
+    </div>
+  </section>
 {% endif %}
+
+{% assign empty_entries = '' | split: ',' %}
+{% assign cv_sections = site.data.cv.cv.sections %}
+{% assign experience_entries = cv_sections.Experience | default: empty_entries | al_cv_sort_by_date %}
+{% assign education_entries = cv_sections.Education | default: empty_entries | al_cv_sort_by_date %}
+<section class="home-cv-grid" aria-label="Research experience and education">
+  <div class="home-cv-column">
+    <h2 class="home-section-title">Research Experience</h2>
+    {% for entry in experience_entries %}
+      <div class="home-cv-entry">
+        {% include home_cv_dates.liquid entry=entry %}
+        <h3 class="home-cv-entry-title">{{ entry.company | escape }}</h3>
+        <p class="home-cv-meta">
+          {{ entry.position | escape }}{% if entry.location and entry.location != '' %}{% if entry.position %} · {% endif %}{{ entry.location | escape }}{% endif %}
+        </p>
+        {% if entry.summary and entry.summary != '' %}
+          <div class="home-cv-detail">{{ entry.summary | markdownify }}</div>
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="home-cv-empty">Details to be added.</p>
+    {% endfor %}
+  </div>
+  <div class="home-cv-column">
+    <h2 class="home-section-title">Education</h2>
+    {% for entry in education_entries %}
+      <div class="home-cv-entry">
+        {% include home_cv_dates.liquid entry=entry %}
+        <h3 class="home-cv-entry-title">
+          {% if entry.studyType and entry.studyType != '' %}{{ entry.studyType | escape }}{% if entry.area and entry.area != '' %} in {{ entry.area | escape }}{% endif %}{% else %}{{ entry.area | escape }}{% endif %}
+        </h3>
+        <p class="home-cv-meta">{{ entry.institution | escape }}</p>
+        {% if entry.advisor and entry.advisor != '' %}
+          <p class="home-cv-detail">Advisor: {{ entry.advisor | escape }}</p>
+        {% endif %}
+      </div>
+    {% else %}
+      <p class="home-cv-empty">Details to be added.</p>
+    {% endfor %}
+  </div>
+</section>
 
