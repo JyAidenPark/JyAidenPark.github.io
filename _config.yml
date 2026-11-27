@@ -11,9 +11,7 @@ contact_note: >
 description: > 
    Personal academic website of Junyoung Park, a Ph.D. student in Electrical Engineering at UNIST.
 footer_text: >
-  Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-  Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
-  Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a>.
+  ""
 keywords: TCAM, CAM, SRAM, CIM, Memory Circuits, AI Accelerator
 lang: en
 icon: fix/JY_Logo.png
@@ -21,7 +19,7 @@ apple_touch_icon: /assets/img/fix/JY_Logo.png
 
 url: https://jyaidenpark.github.io
 baseurl:
-last_updated: true
+last_updated: false
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
