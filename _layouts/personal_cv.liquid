@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<style>
+  #personal-cv,
+  #personal-cv :not(i):not(svg):not(path),
+  #toc-sidebar,
+  #toc-sidebar a {
+    font-family: "Times New Roman", Times, "Liberation Serif", serif !important;
+  }
+</style>
+
+<div id="personal-cv">
+  {% capture cv_markup %}{% al_folio_cv_render %}{% endcapture %}
+  {{ cv_markup | replace: 'Professional Summary', 'Research interest' }}
+</div>
