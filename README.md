@@ -1,4 +1,4 @@
-# Jun Young (Aiden) Park — Academic Website
+# Junyoung (Aiden) Park — Academic Website
 
 [Personal website](https://jyaidenpark.github.io/)
 
