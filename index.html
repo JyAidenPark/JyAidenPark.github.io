@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"> <html><body><p>--- layout: default --- <style>
+  .personal-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 240px;
+    gap: 64px;
+    align-items: start;
+    padding: 40px 0 48px;
+  }
+
+  .hero-keywords {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #527086;
+    margin-bottom: 12px;
+  }
+
+  .hero-name {
+    font-size: clamp(36px, 5vw, 54px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    color: #315d78;
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .hero-bio {
+    font-size: 18px;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .hero-photo {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    display: block;
+    margin-top: 12px;
+  }
+
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 28px;
+  }
+
+  .hero-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: #245e80;
+    text-decoration: none;
+  }
+
+  .hero-links a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 767px) {
+    .personal-hero {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 20px 0;
+    }
+
+    .hero-photo {
+      max-width: 200px;
+    }
+
+    .hero-bio {
+      font-size: 16px;
+    }
+  }
+</style> <section class="personal-hero"> <div class="hero-text"> <div class="hero-keywords"> Memory Circuits · In-Memory Computing · AI Hardware </div> <h1 class="hero-name"> Junyoung Aiden Park </h1> <div class="hero-subtitle"> Ph.D. Candidate in Electrical Engineering · UNIST · Advisor: Kyung Rok Kim </div> <div class="hero-bio"> <p>My research focuses on low-power memory circuits and architectures, particularly SRAM, TCAM, and energy-efficient SRAM-based in-memory computing.</p> <p>I am interested in developing energy-efficient memory architectures for next-generation computing systems.</p> </div> <div class="hero-links"> <a href="/cv/"> CV ↗ </a> </div> </div> <div class="hero-profile"> <img class="hero-photo" src="/assets/img/fix/JY_profile.jpg" alt="Profile photo"> </div> </section> </p></body></html>
