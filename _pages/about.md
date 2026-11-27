@@ -2,15 +2,13 @@
 layout: about
 title: home
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: <a href='#'>Affiliations</a>. PH.D. candidate in Electrical Engineering · UNIST · Advisor: Kyung Rok Kim
 
 profile:
   align: right
   image: /fix/JY_profile.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>PH.D. candidate in Electrical Engineering · UNIST</p>
-    <p>Advisor: Kyung Rok Kim</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false
